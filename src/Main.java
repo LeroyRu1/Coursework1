@@ -14,15 +14,20 @@ public class Main {
         employees[7] = new Employee(5, "Андреев Андрей Андреевич", 90000);
         employees[8] = new Employee(4, "Евгеньев Евгений Евгениевич", 75000);
         employees[9] = new Employee(5, "Валерьев Валерий Валерьевич", 89000);
-        for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i]);
-        }
+
+        printAllEmployees();
         System.out.println("Сумма завтра за месяц ЗП " + calculateSalary());
-        System.out.println("Среднее значение зарплат " + (double) calculateSalary() / employees.length);
+        System.out.println("Среднее значение зарплат " + averageSalary());
         System.out.println("Минимальная зарплата у сотрудника: " + findEmployeeWithMinSalary());
         System.out.println("Максимальная зарплата у сотрудника: " + findEmployeeWithMaxSalary());
         printFullName();
     }
+
+   private static void printAllEmployees () {
+       for (int i = 0; i < employees.length; i++) {
+           System.out.println(employees[i]);
+       }
+   }
 
     private static int calculateSalary() {
         int sum = 0;
@@ -33,6 +38,10 @@ public class Main {
             }
         }
         return sum;
+    }
+
+    private static double averageSalary() {
+        return (double) calculateSalary() / employees.length;
     }
 
     private static Employee findEmployeeWithMinSalary() {
